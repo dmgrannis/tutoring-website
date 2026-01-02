@@ -104,7 +104,7 @@ export default function Home() {
               <p className="text-lg text-gray-700 italic mt-6">
                 "Again, that's the best that's ever been explained to me"
               </p>
-              <p className="text-gray-600">– Anonymous</p>
+              <p className="text-gray-600">– Anthony</p>
             </div>
           </div>
         </section>
