@@ -21,7 +21,7 @@ export default function Contact() {
           
           <div className="bg-blue-50 rounded-3xl p-8">
             <p className="text-lg text-gray-700 leading-relaxed text-justify mb-8">
-              I'd love to hear from you! Whether you have questions about my tutoring services, want to schedule a session, or just want to learn more, feel free to reach out. I'm happy to provide advice, including about whether my services are right for you.
+              I'd love to hear from you! Whether you want to schedule a session or just want to learn more, please reach out. I'm happy to provide advice, including about whether my services are right for you.
             </p>
             
             <div className="text-center mb-8">
