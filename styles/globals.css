@@ -62,17 +62,3 @@ section:nth-child(6) .animate-fade-in-up { animation-delay: 0.3s; }
 section:nth-child(7) .animate-fade-in-up { animation-delay: 0.35s; }
 section:nth-child(8) .animate-fade-in-up { animation-delay: 0.4s; }
 section:nth-child(9) .animate-fade-in-up { animation-delay: 0.45s; }
-
-/* Shimmer animation for navbar accent line */
-@keyframes shimmer {
-  0% {
-    background-position: 200% 0;
-  }
-  100% {
-    background-position: -200% 0;
-  }
-}
-
-.animate-shimmer {
-  animation: shimmer 3s ease-in-out infinite;
-}
