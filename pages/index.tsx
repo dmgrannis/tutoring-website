@@ -18,8 +18,8 @@ export default function Home() {
         {/* Hero Section */}
         <section className="pt-8 pb-3 px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-5xl md:text-6xl font-semibold mb-4 text-blue-900 leading-tight tracking-tight">
-              Unlock Your Academic Potential
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold mb-4 text-blue-900 leading-tight tracking-tight whitespace-nowrap">
+              Unlock Your Mathematical Potential
             </h1>
             <p className="text-xl md:text-2xl text-gray-600 leading-relaxed">
               Math tutoring tailored to your learning style and goals
@@ -60,11 +60,11 @@ export default function Home() {
                 <ul className="space-y-2 text-gray-700">
                   <li className="flex items-start">
                     <span className="text-blue-900 mr-2">•</span>
-                    Current Math PhD student
+                    <span>I'm a <strong>Math PhD student</strong> here</span>
                   </li>
                   <li className="flex items-start">
                     <span className="text-blue-900 mr-2">•</span>
-                    Provost's Graduate Excellence Fellowship
+                    <span>With the prestigious <strong>Provost's Graduate Excellence Fellowship</strong></span>
                   </li>
                 </ul>
               </div>
@@ -76,11 +76,11 @@ export default function Home() {
                 <ul className="space-y-2 text-gray-700">
                   <li className="flex items-start">
                     <span className="text-blue-900 mr-2">•</span>
-                    BA Mathematics with Honors (3.9 GPA)
+                    <span>BA in Mathematics <strong>with Honors (3.9 GPA)</strong></span>
                   </li>
                   <li className="flex items-start">
                     <span className="text-blue-900 mr-2">•</span>
-                    BA Economics
+                    BA in Economics
                   </li>
                   <li className="flex items-start">
                     <span className="text-blue-900 mr-2">•</span>
@@ -96,7 +96,7 @@ export default function Home() {
 
             {/* High School Scores */}
             <div className="bg-blue-50 rounded-3xl p-6 mb-6">
-              <h3 className="text-lg font-semibold text-blue-900 mb-4 text-center">High School Exams</h3>
+              <h3 className="text-lg font-semibold text-blue-900 mb-4 text-center">High School Test Scores</h3>
               <div className="flex flex-wrap justify-center gap-3">
                 <span className="bg-white px-4 py-2 rounded-full text-sm text-gray-700 border border-blue-200">AP Calculus BC: <strong className="text-blue-900">5</strong></span>
                 <span className="bg-white px-4 py-2 rounded-full text-sm text-gray-700 border border-blue-200">AP Physics 1: <strong className="text-blue-900">5</strong></span>
