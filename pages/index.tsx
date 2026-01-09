@@ -43,13 +43,17 @@ export default function Home() {
           </div>
         </section>
 
-        {/* My Qualifications Section */}
+        {/* Why Me Section */}
         <section className="py-8 px-4">
           <div className="max-w-4xl mx-auto animate-fade-in-up">
             <div className="text-center mb-8">
-              <h2 className="text-3xl font-semibold text-blue-900 inline-block">My Qualifications</h2>
+              <h2 className="text-3xl font-semibold text-blue-900 inline-block">Why me?</h2>
               <div className="h-0.5 bg-blue-900 mt-2"></div>
             </div>
+            
+            <p className="text-lg text-gray-700 leading-relaxed text-center mb-8 underline">
+              I'm an expert at math:
+            </p>
             
             {/* University Cards - Side by Side */}
             <div className="grid md:grid-cols-2 gap-6 mb-6">
@@ -189,6 +193,10 @@ export default function Home() {
           </div>
             </details>
             
+            <p className="text-lg text-gray-700 leading-relaxed text-center mb-8 underline">
+              I'm great at breaking down complicated ideas intuitively:
+            </p>
+
             {/* Testimonials - Side by Side */}
             <div className="grid md:grid-cols-2 gap-6">
               <div className="bg-blue-50 rounded-3xl p-8">
@@ -237,7 +245,7 @@ export default function Home() {
                   <div className="h-px bg-blue-900 mt-2"></div>
                 </div>
                 <p className="text-gray-700 leading-relaxed text-justify">
-                  Since each class tends to build on the last, falling behind a little can make your life a lot harder. Tutoring is a great way to keep your head above water. Also, some students struggle in math because they find it boring or dumb. I love math and try to make it exciting for my students by focusing on the cool concepts instead of drilling plug-and-chug procedures. This approach can really help students who don't like math.
+                  Since each class tends to build on the last, falling behind a little can make your life a lot harder. Tutoring is a great way to keep your head above water. Also, <strong>some students</strong> struggle in math because they <strong>find it boring or dumb</strong>. I love math and try to make it <strong>exciting</strong> for my students <strong>by focusing on the cool concepts</strong> instead of drilling plug-and-chug procedures. This approach can really help students who don't like math.
                 </p>
               </div>
 
@@ -247,7 +255,7 @@ export default function Home() {
                   <div className="h-px bg-blue-900 mt-2"></div>
                 </div>
                 <p className="text-gray-700 leading-relaxed text-justify">
-                  I was in this boat myself. I breezed through my classes but regret not being challenged more. That changed in high school. I self-studied pre-calculus and Algebra II so I could take calculus early and then begin dual enrollment. I was able to take 8 classes at Columbia University before finishing high school. If you find your math classes easy, I can create a learning plan that allows you to reach your full potential.
+                  I was in this boat myself. I breezed through my classes but regret not being challenged more. That changed in high school. I self-studied pre-calculus and Algebra II so I could take calculus early and then begin dual enrollment. I was able to take <strong>8 classes at Columbia University before finishing high school</strong>. If you find your math classes easy, I can create a learning plan that allows you to reach your full potential.
                 </p>
               </div>
             </div>
