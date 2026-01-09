@@ -1,9 +1,11 @@
 import Head from 'next/head'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
+import { useRouter } from 'next/router'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 
 export default function Contact() {
+  const router = useRouter()
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -172,10 +174,8 @@ export default function Contact() {
         // Update rate limit with email address
         updateRateLimit(formData.email.trim())
         
-        // Reset form
-        setFormData({ name: '', email: '', message: '' })
-        setSubmitStatus('success')
-        setCanSubmit(true)
+        // Redirect to thank you page
+        router.push('/thank-you')
       } else {
         throw new Error(data.message || 'Failed to send message')
       }
