@@ -43,8 +43,8 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Why Me Section */}
-        <section className="py-8 px-4">
+        {/* Why Me Section - Google Ads sitelink: /#credentials */}
+        <section id="credentials" className="py-8 px-4">
           <div className="max-w-4xl mx-auto animate-fade-in-up">
             <div className="text-center mb-8">
               <h2 className="text-3xl font-semibold text-blue-900 inline-block">Why me?</h2>
@@ -197,8 +197,8 @@ export default function Home() {
               I'm great at breaking down complicated ideas intuitively:
             </p>
 
-            {/* Testimonials - Side by Side */}
-            <div className="grid md:grid-cols-2 gap-6">
+            {/* Testimonials - Side by Side - Google Ads sitelink: /#testimonials */}
+            <div id="testimonials" className="grid md:grid-cols-2 gap-6">
               <div className="bg-blue-50 rounded-3xl p-8">
                 <p className="text-lg text-gray-700 italic leading-relaxed text-center mb-3">
                   "Dillon is the best math teacher I've ever had"
@@ -216,8 +216,8 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Teaching Style Section */}
-        <section className="py-8 px-4">
+        {/* Teaching Style Section - Google Ads sitelink: /#teaching-style */}
+        <section id="teaching-style" className="py-8 px-4">
           <div className="max-w-4xl mx-auto animate-fade-in-up">
             <div className="text-center mb-6">
               <h2 className="text-3xl font-semibold text-blue-900 inline-block">Teaching Style</h2>
@@ -225,14 +225,14 @@ export default function Home() {
             </div>
             <div className="bg-blue-50 rounded-3xl p-8">
               <p className="text-lg text-gray-700 leading-relaxed text-justify">
-                I focus on intuition to demystify formulas. I lead with examples to make abstract theory concrete. I motivate material by discussing its purpose upfront. I am flexible, adapting to my tutees' learning styles. I am professional, compassionate and ambitious about your learning.
+              I focus on intuition to make complicated formulas seem simple. I lead with examples. I’m flexible and will adapt to your learning style. I am urgent, wanting to help you learn as much as you can during our time. I am professional, compassionate and ambitious about your learning.
               </p>
             </div>
           </div>
         </section>
 
-        {/* Why Get Tutoring Section - Side by Side */}
-        <section className="py-8 px-4">
+        {/* Why Get Tutoring Section - Side by Side - Google Ads sitelink: /#why-tutoring */}
+        <section id="why-tutoring" className="py-8 px-4">
           <div className="max-w-4xl mx-auto animate-fade-in-up">
             <div className="text-center mb-8">
               <h2 className="text-3xl font-semibold text-blue-900 inline-block">Why Get Tutoring?</h2>
@@ -262,8 +262,8 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Session Format Section */}
-        <section className="py-8 px-4">
+        {/* Session Format Section - potential sitelink: /#session-format */}
+        <section id="session-format" className="py-8 px-4">
           <div className="max-w-4xl mx-auto animate-fade-in-up">
             <div className="text-center mb-6">
               <h2 className="text-3xl font-semibold text-blue-900 inline-block">Session Format</h2>
@@ -277,8 +277,8 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Rate Section */}
-        <section className="py-8 px-4">
+        {/* Rate Section - potential sitelink: /#pricing */}
+        <section id="pricing" className="py-8 px-4">
           <div className="max-w-4xl mx-auto animate-fade-in-up">
             <div className="text-center mb-6">
               <h2 className="text-3xl font-semibold text-blue-900 inline-block">Rate</h2>

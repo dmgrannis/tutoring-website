@@ -40,9 +40,7 @@ a {
     opacity: 1;
     transform: translateY(0);
   }
-}
-
-.animate-fade-in {
+}.animate-fade-in {
   animation: fadeIn 0.6s ease-out forwards;
 }
 
@@ -60,3 +58,13 @@ section:nth-child(6) .animate-fade-in-up { animation-delay: 0.3s; }
 section:nth-child(7) .animate-fade-in-up { animation-delay: 0.35s; }
 section:nth-child(8) .animate-fade-in-up { animation-delay: 0.4s; }
 section:nth-child(9) .animate-fade-in-up { animation-delay: 0.45s; }
+
+/* Offset anchor links so content appears below sticky navbar with buffer */
+#credentials,
+#testimonials,
+#teaching-style,
+#why-tutoring,
+#session-format,
+#pricing {
+  scroll-margin-top: 88px; /* navbar (64px) + buffer (24px) */
+}
