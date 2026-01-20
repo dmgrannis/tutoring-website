@@ -451,6 +451,50 @@ export default function Contact() {
               </button>
             </form>
           </div>
+
+          {/* FAQ Section */}
+          <div className="bg-blue-50 rounded-3xl p-8">
+            <h2 className="text-2xl md:text-3xl font-semibold text-blue-900 mb-6">Frequently Asked Questions</h2>
+            
+            <div className="space-y-6">
+              <div>
+                <h3 className="text-lg font-semibold text-blue-900 mb-2">What is your rate?</h3>
+                <p className="text-gray-700">100 USD / hour.</p>
+              </div>
+
+              <div>
+                <h3 className="text-lg font-semibold text-blue-900 mb-2">How do sessions work?</h3>
+                <p className="text-gray-700">
+                  All sessions are 1-on-1 and virtual (via Zoom or Google Meet). I share my iPad screen to draw pictures and show how to solve problems. The student can explain their work verbally or use tech solutions to show me their paper, e.g. <a href="https://www.tiktok.com/@ravinascreatives/video/7166089637881105710" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 underline">desk view</a> if they are on the Apple ecosystem or a <a href="https://www.amazon.com/dp/B07P2VK93P" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 underline">phone camera mount</a>.
+                </p>
+              </div>
+
+              <div>
+                <h3 className="text-lg font-semibold text-blue-900 mb-2">What subjects do you tutor?</h3>
+                <p className="text-gray-700">I tutor all levels of math, from middle school through college-level courses including calculus, linear algebra, and statistics.</p>
+              </div>
+
+              <div>
+                <h3 className="text-lg font-semibold text-blue-900 mb-2">Do you only tutor math?</h3>
+                <p className="text-gray-700">Math is my specialty. But I can also tutor physics, computer science, and economics.</p>
+              </div>
+
+              <div>
+                <h3 className="text-lg font-semibold text-blue-900 mb-2">How long are sessions?</h3>
+                <p className="text-gray-700">Sessions are typically 60 minutes, but I offer flexible scheduling for longer or shorter sessions based on your needs.</p>
+              </div>
+
+              <div>
+                <h3 className="text-lg font-semibold text-blue-900 mb-2">What if my student is struggling vs. already advanced?</h3>
+                <p className="text-gray-700">I work with both. For struggling students, I break down concepts intuitively. For advanced students, I can push beyond classroom limits with accelerated material.</p>
+              </div>
+
+              <div>
+                <h3 className="text-lg font-semibold text-blue-900 mb-2">Do you offer a free consultation?</h3>
+                <p className="text-gray-700">Yes! I'm happy to chat to help you decide if I'm the right fit for your needs.</p>
+              </div>
+            </div>
+          </div>
         </div>
       </main>
       <Footer />
