@@ -68,3 +68,10 @@ section:nth-child(9) .animate-fade-in-up { animation-delay: 0.45s; }
 #pricing {
   scroll-margin-top: 88px; /* navbar (64px) + buffer (24px) */
 }
+
+/* Bracket highlight for message templates */
+.bracket-highlight {
+  background-color: #fef08a;
+  border-radius: 4px;
+  padding: 1px 2px;
+}

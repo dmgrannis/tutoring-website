@@ -193,12 +193,13 @@ export default function Home() {
           </div>
             </details>
             
-            <p className="text-lg text-gray-700 leading-relaxed text-center mb-8 underline">
+            {/* Google Ads sitelink: /#testimonials */}
+            <p id="testimonials" className="text-lg text-gray-700 leading-relaxed text-center mb-8 underline">
               I'm great at breaking down complicated ideas intuitively:
             </p>
 
-            {/* Testimonials - Side by Side - Google Ads sitelink: /#testimonials */}
-            <div id="testimonials" className="grid md:grid-cols-2 gap-6">
+            {/* Testimonials - Side by Side */}
+            <div className="grid md:grid-cols-2 gap-6">
               <div className="bg-blue-50 rounded-3xl p-8">
                 <p className="text-lg text-gray-700 italic leading-relaxed text-center mb-3">
                   "Dillon is the best math teacher I've ever had"

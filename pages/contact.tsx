@@ -1,16 +1,148 @@
 import Head from 'next/head'
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { useRouter } from 'next/router'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 
+// Message presets for short URLs (e.g., /contact?preset=help) and buttons
+// Edit these messages anytime without changing your ad URLs
+const MESSAGE_PRESETS: Record<string, { label: string; message: string }> = {
+  help: {
+    label: 'See if I can help',
+    message: `Hi Dillon,
+
+I'm looking for tutoring to help [a student] with [a test, course or topic].
+
+Is this something you can help with? [Optional: Any other questions.]
+
+Thanks!`,
+  },
+  trial: {
+    label: 'Schedule a trial session',
+    message: `Hi Dillon,
+
+I'd like to schedule a trial session to help [a student] with [a test, course or topic].
+
+Here are a few times that work:
+[Times]
+
+Do any of these work for you?
+
+Thanks!`,
+  },
+  consultation: {
+    label: 'Schedule a free consultation',
+    message: `Hi Dillon,
+
+I'd like to schedule a free consultation to discuss how you could help [a student] with [a test, course or topic].
+
+Here are a few times that work:
+[Times]
+
+Do any of these work for you?
+
+Thanks!`,
+  },
+  plan: {
+    label: 'Get a custom learning plan',
+    message: `Hi Dillon,
+
+I'm interested in having you propose a custom learning plan for [the student].
+
+Objective: [What's your end goal?]
+Current progress: [The student's current understanding / grade level / background]
+Timing: [When do you want your goal to be completed? How much time can the student commit?]
+
+Thanks!`,
+  },
+}
+
 export default function Contact() {
   const router = useRouter()
+  const editorRef = useRef<HTMLDivElement>(null)
+  const isUserTyping = useRef(false)
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     message: ''
   })
+
+  // Render message with highlighted brackets
+  const renderHighlightedMessage = (text: string): string => {
+    if (!text) return ''
+    // Escape HTML entities first, then highlight brackets
+    const escaped = text
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+    // Wrap [bracketed text] in highlighted spans
+    return escaped
+      .replace(/\[([^\]]+)\]/g, '<span class="bracket-highlight">[$1]</span>')
+      .replace(/\n/g, '<br>')
+  }
+
+  // Update editor content when message changes from external source (not user typing)
+  useEffect(() => {
+    if (editorRef.current && !isUserTyping.current) {
+      editorRef.current.innerHTML = renderHighlightedMessage(formData.message)
+    }
+    isUserTyping.current = false
+  }, [formData.message])
+
+  // Pre-fill form fields from URL query parameters or presets
+  useEffect(() => {
+    if (router.isReady) {
+      const { message, name, email, preset } = router.query
+      
+      // Check for preset first
+      if (typeof preset === 'string' && MESSAGE_PRESETS[preset]) {
+        setFormData(prev => ({
+          ...prev,
+          message: MESSAGE_PRESETS[preset].message
+        }))
+      } else if (message || name || email) {
+        // Fall back to direct query parameters
+        setFormData(prev => ({
+          name: typeof name === 'string' ? name : prev.name,
+          email: typeof email === 'string' ? email : prev.email,
+          message: typeof message === 'string' ? message : prev.message
+        }))
+      }
+    }
+  }, [router.isReady, router.query])
+
+  // Handle preset button click
+  const selectPreset = (presetKey: string) => {
+    if (MESSAGE_PRESETS[presetKey]) {
+      setFormData(prev => ({
+        ...prev,
+        message: MESSAGE_PRESETS[presetKey].message
+      }))
+    }
+  }
+
+  // Handle contenteditable input
+  const handleMessageInput = () => {
+    if (editorRef.current) {
+      isUserTyping.current = true
+      // Get plain text from contenteditable, preserving line breaks
+      const text = editorRef.current.innerText
+      setFormData(prev => ({ ...prev, message: text }))
+      
+      // Clear error messages when user starts typing
+      if (submitStatus !== 'idle') {
+        setSubmitStatus('idle')
+        setErrorMessage('')
+      }
+    }
+  }
+
+  // Re-apply highlights when user finishes editing
+  const handleMessageBlur = () => {
+    if (editorRef.current) {
+      editorRef.current.innerHTML = renderHighlightedMessage(formData.message)
+    }
+  }
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error' | 'rate-limit'>('idle')
   const [errorMessage, setErrorMessage] = useState('')
@@ -206,9 +338,28 @@ export default function Contact() {
           </div>
           
           <div className="bg-blue-50 rounded-3xl p-8 mb-6">
-            <p className="text-lg text-gray-700 leading-relaxed text-justify mb-8">
-              I'd love to hear from you! Whether you want to schedule a session or just want to learn more, please reach out. I'm happy to provide advice, including about whether my services are right for you. Don't be shy; I'm happy to answer any questions. I typically respond within 24-48 hours.
+            <p className="text-lg text-gray-700 leading-relaxed text-justify mb-6">
+              Ready to book your first session? Have a question about my service or qualifications? Please don't hesitate to reach out. I respond within 48 hours.
             </p>
+
+            {/* Prebuilt Messages */}
+            <div className="mb-8">
+              <p className="text-gray-700 mb-3">
+                Here are some templates for your convenience. Just fill in the highlighted sections and hit send!
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {Object.entries(MESSAGE_PRESETS).map(([key, preset]) => (
+                  <button
+                    key={key}
+                    type="button"
+                    onClick={() => selectPreset(key)}
+                    className="px-4 py-2 bg-white border border-blue-200 text-blue-900 rounded-full text-sm font-medium hover:bg-blue-100 hover:border-blue-300 transition-colors duration-200"
+                  >
+                    {preset.label}
+                  </button>
+                ))}
+              </div>
+            </div>
 
             {/* Contact Form */}
             <form onSubmit={handleSubmit} className="space-y-6">
@@ -250,17 +401,24 @@ export default function Contact() {
                 <label htmlFor="message" className="block text-gray-700 font-medium mb-2">
                   Message
                 </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  disabled={isSubmitting || !canSubmit}
-                  rows={6}
-                  className="w-full px-4 py-3 rounded-2xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent disabled:bg-gray-100 disabled:cursor-not-allowed resize-none transition-all duration-200"
-                  placeholder="What can I help you with?"
-                  required
-                />
+                <div className="relative">
+                  <div
+                    ref={editorRef}
+                    contentEditable={!isSubmitting && canSubmit}
+                    onInput={handleMessageInput}
+                    onBlur={handleMessageBlur}
+                    className={`w-full px-4 py-3 rounded-2xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 min-h-[168px] whitespace-pre-wrap ${
+                      isSubmitting || !canSubmit ? 'bg-gray-100 cursor-not-allowed' : 'bg-white'
+                    }`}
+                    style={{ wordBreak: 'break-word' }}
+                    suppressContentEditableWarning={true}
+                  />
+                  {!formData.message && (
+                    <div className="absolute top-3 left-4 text-gray-400 pointer-events-none">
+                      What can I help you with?
+                    </div>
+                  )}
+                </div>
               </div>
 
               {/* Status Messages */}
