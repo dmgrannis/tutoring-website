@@ -32,10 +32,10 @@ export default function Home() {
           <div className="max-w-4xl mx-auto">
             <div className="w-full rounded-[2.5rem] overflow-hidden animate-fade-in">
               <Image
-                src="/images/littletutoringpic.jpg"
+                src="/images/tutoringpic.webp"
                 alt="Dillon Grannis tutoring students at a blackboard"
-                width={1200}
-                height={800}
+                width={3000}
+                height={1418}
                 className="w-full h-auto object-cover"
                 priority
               />
