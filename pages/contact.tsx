@@ -1,3 +1,4 @@
+// Site: dillontutors.com - Dillon Grannis's personal tutoring website
 import Head from 'next/head'
 import { useState, useEffect, useRef } from 'react'
 import { useRouter } from 'next/router'
@@ -339,7 +340,7 @@ export default function Contact() {
           
           <div className="bg-blue-50 rounded-3xl p-8 mb-6">
             <p className="text-lg text-gray-700 leading-relaxed text-justify mb-6">
-              Ready to book your first session? Have a question about my service or qualifications? Please don't hesitate to reach out. I respond within 48 hours.
+              Please don't hesitate to reach out with any questions. I respond in 24 hours.
             </p>
 
             {/* Prebuilt Messages */}
@@ -460,13 +461,6 @@ export default function Contact() {
               <div>
                 <h3 className="text-lg font-semibold text-blue-900 mb-2">What is your rate?</h3>
                 <p className="text-gray-700">100 USD / hour.</p>
-              </div>
-
-              <div>
-                <h3 className="text-lg font-semibold text-blue-900 mb-2">How do sessions work?</h3>
-                <p className="text-gray-700">
-                  All sessions are 1-on-1 and virtual (via Zoom or Google Meet). I share my iPad screen to draw pictures and show how to solve problems. The student can explain their work verbally or use tech solutions to show me their paper, e.g. <a href="https://www.tiktok.com/@ravinascreatives/video/7166089637881105710" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 underline">desk view</a> if they are on the Apple ecosystem or a <a href="https://www.amazon.com/dp/B07P2VK93P" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 underline">phone camera mount</a>.
-                </p>
               </div>
 
               <div>

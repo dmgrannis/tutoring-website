@@ -1,3 +1,4 @@
+// Site: dillontutors.com - Dillon Grannis's personal tutoring website
 import Head from 'next/head'
 import Link from 'next/link'
 import Image from 'next/image'
@@ -45,15 +46,13 @@ export default function Home() {
 
         {/* Why Me Section - Google Ads sitelink: /#credentials */}
         <section id="credentials" className="py-8 px-4">
+          <span id="credentials2" className="hidden"></span>
+          <span id="credentials3" className="hidden"></span>
           <div className="max-w-4xl mx-auto animate-fade-in-up">
             <div className="text-center mb-8">
               <h2 className="text-3xl font-semibold text-blue-900 inline-block">Why me?</h2>
               <div className="h-0.5 bg-blue-900 mt-2"></div>
             </div>
-            
-            <p className="text-lg text-gray-700 leading-relaxed text-center mb-8 underline">
-              I'm an expert at math:
-            </p>
             
             {/* University Cards - Side by Side */}
             <div className="grid md:grid-cols-2 gap-6 mb-6">
@@ -192,13 +191,18 @@ export default function Home() {
                 </div>
           </div>
             </details>
-            
-            {/* Google Ads sitelink: /#testimonials */}
-            <p id="testimonials" className="text-lg text-gray-700 leading-relaxed text-center mb-8 underline">
-              I'm great at breaking down complicated ideas intuitively:
-            </p>
+          </div>
+        </section>
 
-            {/* Testimonials - Side by Side */}
+        {/* Testimonials Section - Google Ads sitelink: /#testimonials */}
+        <section id="testimonials" className="py-8 px-4">
+          <span id="testimonials2" className="hidden"></span>
+          <span id="testimonials3" className="hidden"></span>
+          <div className="max-w-4xl mx-auto animate-fade-in-up">
+            <div className="text-center mb-6">
+              <h2 className="text-3xl font-semibold text-blue-900 inline-block">Testimonials</h2>
+              <div className="h-0.5 bg-blue-900 mt-2"></div>
+            </div>
             <div className="grid md:grid-cols-2 gap-6">
               <div className="bg-blue-50 rounded-3xl p-8">
                 <p className="text-lg text-gray-700 italic leading-relaxed text-center mb-3">
@@ -219,6 +223,8 @@ export default function Home() {
 
         {/* Teaching Style Section - Google Ads sitelink: /#teaching-style */}
         <section id="teaching-style" className="py-8 px-4">
+          <span id="teaching-style2" className="hidden"></span>
+          <span id="teaching-style3" className="hidden"></span>
           <div className="max-w-4xl mx-auto animate-fade-in-up">
             <div className="text-center mb-6">
               <h2 className="text-3xl font-semibold text-blue-900 inline-block">Teaching Style</h2>
@@ -234,6 +240,8 @@ export default function Home() {
 
         {/* Why Get Tutoring Section - Side by Side - Google Ads sitelink: /#why-tutoring */}
         <section id="why-tutoring" className="py-8 px-4">
+          <span id="why-tutoring2" className="hidden"></span>
+          <span id="why-tutoring3" className="hidden"></span>
           <div className="max-w-4xl mx-auto animate-fade-in-up">
             <div className="text-center mb-8">
               <h2 className="text-3xl font-semibold text-blue-900 inline-block">Why Get Tutoring?</h2>
@@ -265,21 +273,25 @@ export default function Home() {
 
         {/* Session Format Section - potential sitelink: /#session-format */}
         <section id="session-format" className="py-8 px-4">
+          <span id="session-format2" className="hidden"></span>
+          <span id="session-format3" className="hidden"></span>
           <div className="max-w-4xl mx-auto animate-fade-in-up">
             <div className="text-center mb-6">
               <h2 className="text-3xl font-semibold text-blue-900 inline-block">Session Format</h2>
               <div className="h-0.5 bg-blue-900 mt-2"></div>
-            </div>
+          </div>
             <div className="bg-blue-50 rounded-3xl p-8">
               <p className="text-lg text-gray-700 leading-relaxed text-justify">
-              I typically guide students through practice problems from their course, answer their questions or introduce them to new topics of their request. But I'm open to any format best serving your needs — feel free to request any style of tutoring you think makes sense for you.
-            </p>
+                All sessions are 1-on-1 and virtual (via Zoom or Google Meet). I share my iPad screen to draw pictures and show how to solve problems. The student can explain their work verbally or use tech solutions to show me their paper, e.g. <a href="https://www.tiktok.com/@ravinascreatives/video/7166089637881105710" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 underline">desk view</a> if they are on the Apple ecosystem or a <a href="https://www.amazon.com/dp/B07P2VK93P" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 underline">phone camera mount</a>.
+              </p>
             </div>
           </div>
         </section>
 
         {/* Rate Section - potential sitelink: /#pricing */}
         <section id="pricing" className="py-8 px-4">
+          <span id="pricing2" className="hidden"></span>
+          <span id="pricing3" className="hidden"></span>
           <div className="max-w-4xl mx-auto animate-fade-in-up">
             <div className="text-center mb-6">
               <h2 className="text-3xl font-semibold text-blue-900 inline-block">Rate</h2>
@@ -287,9 +299,9 @@ export default function Home() {
             </div>
             <div className="bg-blue-50 rounded-3xl p-8">
               <p className="text-lg text-gray-700 leading-relaxed text-center">
-                My standard rate is <span className="font-semibold text-blue-900">$100 per hour</span>.
-              </p>
-            </div>
+                100 USD per hour.
+            </p>
+          </div>
           </div>
         </section>
 

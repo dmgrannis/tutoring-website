@@ -12,8 +12,9 @@ export default function Navbar() {
       <div className="w-full h-16 flex items-center relative z-10">
         {/* Left margin - Dillon Grannis centered here */}
         <div className="flex-1 flex justify-center">
-          <Link href="/" className="text-xl font-semibold text-white tracking-wide">
-            Dillon Grannis
+          <Link href="/" className="text-center">
+            <div className="text-xl font-semibold text-white tracking-wide">Dillon Grannis</div>
+            <div className="text-sm text-white/80 tracking-widest" style={{ wordSpacing: '0.15em' }}>Math Tutoring</div>
           </Link>
         </div>
         

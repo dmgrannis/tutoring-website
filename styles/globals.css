@@ -61,11 +61,23 @@ section:nth-child(9) .animate-fade-in-up { animation-delay: 0.45s; }
 
 /* Offset anchor links so content appears below sticky navbar with buffer */
 #credentials,
+#credentials2,
+#credentials3,
 #testimonials,
+#testimonials2,
+#testimonials3,
 #teaching-style,
+#teaching-style2,
+#teaching-style3,
 #why-tutoring,
+#why-tutoring2,
+#why-tutoring3,
 #session-format,
-#pricing {
+#session-format2,
+#session-format3,
+#pricing,
+#pricing2,
+#pricing3 {
   scroll-margin-top: 88px; /* navbar (64px) + buffer (24px) */
 }
 
