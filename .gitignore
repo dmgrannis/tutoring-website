@@ -34,5 +34,6 @@ next-env.d.ts
 
 # backup images
 public/images/littletutoringpic-original.jpg
+public/images/tutoringpic.jpeg
 
 

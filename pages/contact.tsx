@@ -65,7 +65,9 @@ export default function Contact() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    message: ''
+    message: '',
+    website: '', // Honeypot field - should always be empty (bots fill this)
+    seekingTutoring: false // Checkbox to filter out people offering services
   })
 
   // Render message with highlighted brackets
@@ -238,6 +240,33 @@ export default function Contact() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     
+    // Honeypot check - if filled, still submit but mark as spam
+    // Bots fill this hidden field, humans never see it
+    if (formData.website) {
+      // Send the form but mark it as likely spam
+      try {
+        await fetch('https://formsubmit.co/ajax/dillongrannis@gmail.com', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify({
+            name: formData.name,
+            email: formData.email,
+            message: formData.message,
+            _subject: `[LIKELY SPAM] Tutoring Inquiry from ${formData.name}`,
+            _replyto: formData.email,
+            _captcha: false
+          })
+        })
+      } catch (e) {
+        // Silently fail for spam
+      }
+      router.push('/thanks')
+      return
+    }
+
     // Validation
     if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {
       setSubmitStatus('error')
@@ -248,6 +277,28 @@ export default function Contact() {
     if (!/\S+@\S+\.\S+/.test(formData.email)) {
       setSubmitStatus('error')
       setErrorMessage('Please enter a valid email address.')
+      return
+    }
+
+    // Minimum message length check
+    if (formData.message.trim().length < 50) {
+      setSubmitStatus('error')
+      setErrorMessage('Please provide more detail in your message (at least 50 characters).')
+      return
+    }
+
+    // Check for unchanged template messages
+    const templateMessages = Object.values(MESSAGE_PRESETS).map(p => p.message.trim())
+    if (templateMessages.includes(formData.message.trim())) {
+      setSubmitStatus('error')
+      setErrorMessage('Please personalize the template by filling in the [bracketed sections] before sending.')
+      return
+    }
+
+    // Checkbox confirmation
+    if (!formData.seekingTutoring) {
+      setSubmitStatus('error')
+      setErrorMessage('Please confirm you are seeking tutoring services.')
       return
     }
 
@@ -364,6 +415,18 @@ export default function Contact() {
 
             {/* Contact Form */}
             <form onSubmit={handleSubmit} className="space-y-6">
+              {/* Honeypot field - hidden from humans, bots will fill it */}
+              <input
+                type="text"
+                name="website"
+                value={formData.website}
+                onChange={handleChange}
+                className="absolute -left-[9999px]"
+                tabIndex={-1}
+                autoComplete="off"
+                aria-hidden="true"
+              />
+
               <div>
                 <label htmlFor="name" className="block text-gray-700 font-medium mb-2">
                   Name
@@ -442,6 +505,23 @@ export default function Contact() {
                   <p className="text-yellow-800 font-medium">{errorMessage}</p>
                 </div>
               )}
+
+              {/* Checkbox to filter out people offering tutoring services */}
+              <div className="flex items-start gap-3">
+                <input
+                  type="checkbox"
+                  id="seekingTutoring"
+                  name="seekingTutoring"
+                  checked={formData.seekingTutoring}
+                  onChange={(e) => setFormData({...formData, seekingTutoring: e.target.checked})}
+                  disabled={isSubmitting || !canSubmit}
+                  className="mt-1 h-5 w-5 rounded border-gray-300 text-blue-600 focus:ring-blue-500 cursor-pointer disabled:cursor-not-allowed"
+                  required
+                />
+                <label htmlFor="seekingTutoring" className="text-gray-700 cursor-pointer">
+                  I am a student or parent looking for tutoring services (not offering services)
+                </label>
+              </div>
 
               <button
                 type="submit"
