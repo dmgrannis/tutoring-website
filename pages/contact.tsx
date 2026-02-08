@@ -106,6 +106,7 @@ export default function Contact() {
       } else if (message || name || email) {
         // Fall back to direct query parameters
         setFormData(prev => ({
+          ...prev,
           name: typeof name === 'string' ? name : prev.name,
           email: typeof email === 'string' ? email : prev.email,
           message: typeof message === 'string' ? message : prev.message
